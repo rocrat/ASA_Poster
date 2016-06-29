@@ -4,6 +4,16 @@ library(compositions)
 library(cowplot)
 library(animation)
 
+cpm.stand <- function(x){
+  # browser()
+  if(any(apply(x, 2, function(y) any(is.na(y))))) stop("No NA's are allowed in the data matrix")
+  totals <- apply(x, 2, sum)+1
+  x2 <- x+.5
+  CPM <- log2(t(t(x2)/totals) * 10^6)
+  return(CPM)
+}
+
+
 #create simple compositional data set to illustrate dependency
 df <- data.frame(mRNA = rep(c("mRNA_1" , "mRNA_2" , "mRNA_3", "mRNA_4"), 2),
                  Expression = c(10, 20, 15, 5, clo(c(10, 20, 15, 5))), 

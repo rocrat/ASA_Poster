@@ -1,1 +1,18 @@
 <h4>Counts per Million: A compositional operation</h4>
+<p style="font-size:10px">Counts per million (CPM) transformation is a simple, and widely used, normalization method which adjusts reads of individual transcripts by the total number of reads allocated to the sample.  Generally, values are then log-transformed.
+$$log_2 (CPM(x_i)) = log_2(\frac{x_i+0.5}{(\sum_{j=1}^D x_j)+1} \times 10^6)$$
+<ul style="font-size:10px">
+  <li>What does CPM accomplish?</li>
+    <ol style="I">
+      <li>CPM simply rescales the data, a compositional <i><b>closure</b></i> operation.</li>
+      <li>Reads from each sample then sum to \(\approx\)1 million (due to arbitrary scaling)</li>
+    </ol>
+  <li>What does CPM <i>not</i> accomplish?</li>
+    <ol style="I">
+      <li>Data still resides in the compositional simplex</li>
+      <li>Multivariate methods may still produce spurious results due to the sum constraint</li>
+    </ol>
+  <li>Other normalization methods (median, TMM, quantile normalizations, etc.) are also rescaling operations which induce a more uniform sum constraint accross samples (although not identical).</li>
+</ul>
+</p>
+<p align="right">   <a href = "javascript:void(0)" onclick = "document.getElementById('content4').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
