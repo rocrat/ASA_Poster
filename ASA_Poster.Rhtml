@@ -8,10 +8,10 @@ library(compositions)
 library(ggplot2)
 library(knitr)
 
-knit("./ASA_Poster_Content/content_1.Rhtml", output = "./ASA_Poster_Content/content_1.html", quiet = TRUE)
-knit("./ASA_Poster_Content/expanded_content_1.Rhtml", output = "./ASA_Poster_Content/expanded_content_1.html", quiet = TRUE)
-knit("./ASA_Poster_Content/content_2.Rhtml", output = "./ASA_Poster_Content/content_2.html", quiet = TRUE)
-knit("./ASA_Poster_Content/expanded_content_2.Rhtml", output = "./ASA_Poster_Content/expanded_content_2.html", quiet = TRUE)
+# knit("./ASA_Poster_Content/content_1.Rhtml", output = "./ASA_Poster_Content/content_1.html", quiet = TRUE)
+# knit("./ASA_Poster_Content/expanded_content_1.Rhtml", output = "./ASA_Poster_Content/expanded_content_1.html", quiet = TRUE)
+# knit("./ASA_Poster_Content/content_2.Rhtml", output = "./ASA_Poster_Content/content_2.html", quiet = TRUE)
+# knit("./ASA_Poster_Content/expanded_content_2.Rhtml", output = "./ASA_Poster_Content/expanded_content_2.html", quiet = TRUE)
 end.rcode-->
 
 <script type="text/javascript">
@@ -153,7 +153,9 @@ end.rcode-->
 </div>
 
 <div id="content2" class="white_content">
-    This is the expanded Content 2. 
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/expanded_content_2.html")
+end.rcode-->  
     <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 
