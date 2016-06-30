@@ -1,0 +1,318 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.1.28)  29 JUN 2016 16:01
+entering extended mode
+**./CREDOBill.tex
+(CREDOBill.tex
+LaTeX2e <2015/10/01> patch level 2
+Babel <3.9n> and hyphenation patterns for 69 languages loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count87
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 142.
+)
+("C:\Users\dlaroche\AppData\Local\Programs\MiKTeX 2.9\tex\latex\framed\framed.s
+ty"
+Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
+\OuterFrameSep=\skip43
+\fb@frw=\dimen105
+\fb@frh=\dimen106
+\FrameRule=\dimen107
+\FrameSep=\dimen108
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\alltt.sty"
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+("C:\Users\dlaroche\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\pdfpag
+es.sty"
+Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count88
+\calc@Bcount=\count89
+\calc@Adimen=\dimen109
+\calc@Bdimen=\dimen110
+\calc@Askip=\skip44
+\calc@Bskip=\skip45
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count90
+\calc@Cskip=\skip46
+)
+("C:\Users\dlaroche\AppData\Local\Programs\MiKTeX 2.9\tex\latex\eso-pic\eso-pic
+.sty"
+Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
+ ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\atbegshi.sty"
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)))
+\AM@pagewidth=\dimen111
+\AM@pageheight=\dimen112
+
+("C:\Users\dlaroche\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\pppdft
+ex.def"
+File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
+)
+\AM@pagebox=\box26
+\AM@global@opts=\toks15
+\AM@toc@title=\toks16
+\c@AM@survey=\count91
+\AM@templatesizebox=\box27
+)
+("C:\Users\dlaroche\AppData\Local\Programs\MiKTeX 2.9\tex\latex\upquote\upquote
+.sty"
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
+) (CREDOBill.aux)
+\openout1 = `CREDOBill.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
+LaTeX Font Info:    ... okay on input line 53.
+
+("C:\Users\dlaroche\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf
+.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count92
+\scratchdimen=\dimen113
+\scratchbox=\box28
+\nofMPsegments=\count93
+\nofMParguments=\count94
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count95
+\MPscratchDim=\dimen114
+\MPnumerator=\count96
+\makeMPintoPDFobject=\count97
+\everyMPtoPDFconversion=\toks18
+)
+\AtBeginShipoutBox=\box29
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+Package: pdflscape 2008/08/11 v0.10 Display of landscape pages in PDF (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 80.
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+))
+<C:/Classes/ASA_Poster/BillPage1.pdf, id=1, 561.94641pt x 724.56696pt>
+File: C:/Classes/ASA_Poster/BillPage1.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage1.pdf>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage1.pdf used on input line
+ 54.
+(pdftex.def)             Requested size: 561.94504pt x 724.56519pt.
+File: C:/Classes/ASA_Poster/BillPage1.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage1.pdf>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage1.pdf used on input line
+ 54.
+(pdftex.def)             Requested size: 561.94504pt x 724.56519pt.
+
+<C:/Classes/ASA_Poster/BillPage1.pdf, id=4, page=1, 561.94641pt x 724.56696pt>
+File: C:/Classes/ASA_Poster/BillPage1.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage1.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage1.pdf, page1 used on inp
+ut line 54.
+(pdftex.def)             Requested size: 561.94504pt x 724.56519pt.
+File: C:/Classes/ASA_Poster/BillPage1.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage1.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage1.pdf, page1 used on inp
+ut line 54.
+(pdftex.def)             Requested size: 615.32191pt x 793.3887pt.
+File: C:/Classes/ASA_Poster/BillPage1.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage1.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage1.pdf, page1 used on inp
+ut line 54.
+(pdftex.def)             Requested size: 615.32191pt x 793.3887pt.
+File: C:/Classes/ASA_Poster/BillPage1.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage1.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage1.pdf, page1 used on inp
+ut line 54.
+(pdftex.def)             Requested size: 615.32191pt x 793.3887pt.
+File: C:/Classes/ASA_Poster/BillPage1.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage1.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage1.pdf, page1 used on inp
+ut line 54.
+(pdftex.def)             Requested size: 615.32191pt x 793.3887pt.
+ [1
+
+ <C:/Classes/ASA_Poster/BillPage1.pdf>]
+<C:/Classes/ASA_Poster/BillPage2.pdf, id=15, 559.5364pt x 725.77147pt>
+File: C:/Classes/ASA_Poster/BillPage2.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage2.pdf>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage2.pdf used on input line
+ 55.
+(pdftex.def)             Requested size: 559.53503pt x 725.76968pt.
+File: C:/Classes/ASA_Poster/BillPage2.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage2.pdf>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage2.pdf used on input line
+ 55.
+(pdftex.def)             Requested size: 559.53503pt x 725.76968pt.
+
+<C:/Classes/ASA_Poster/BillPage2.pdf, id=18, page=1, 559.5364pt x 725.77147pt>
+File: C:/Classes/ASA_Poster/BillPage2.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage2.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage2.pdf, page1 used on inp
+ut line 55.
+(pdftex.def)             Requested size: 559.53503pt x 725.76968pt.
+File: C:/Classes/ASA_Poster/BillPage2.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage2.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage2.pdf, page1 used on inp
+ut line 55.
+(pdftex.def)             Requested size: 613.52824pt x 795.80397pt.
+File: C:/Classes/ASA_Poster/BillPage2.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage2.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage2.pdf, page1 used on inp
+ut line 55.
+(pdftex.def)             Requested size: 613.52824pt x 795.80397pt.
+File: C:/Classes/ASA_Poster/BillPage2.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage2.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage2.pdf, page1 used on inp
+ut line 55.
+(pdftex.def)             Requested size: 613.52824pt x 795.80397pt.
+File: C:/Classes/ASA_Poster/BillPage2.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage2.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage2.pdf, page1 used on inp
+ut line 55.
+(pdftex.def)             Requested size: 613.52824pt x 795.80397pt.
+ [2 <C:/Classes/ASA_Poster/BillPage2.pdf>]
+<C:/Classes/ASA_Poster/BillPage3.pdf, id=26, 559.5364pt x 726.97598pt>
+File: C:/Classes/ASA_Poster/BillPage3.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage3.pdf>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage3.pdf used on input line
+ 56.
+(pdftex.def)             Requested size: 559.53503pt x 726.9742pt.
+File: C:/Classes/ASA_Poster/BillPage3.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage3.pdf>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage3.pdf used on input line
+ 56.
+(pdftex.def)             Requested size: 559.53503pt x 726.9742pt.
+
+<C:/Classes/ASA_Poster/BillPage3.pdf, id=29, page=1, 559.5364pt x 726.97598pt>
+File: C:/Classes/ASA_Poster/BillPage3.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage3.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage3.pdf, page1 used on inp
+ut line 56.
+(pdftex.def)             Requested size: 559.53503pt x 726.9742pt.
+File: C:/Classes/ASA_Poster/BillPage3.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage3.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage3.pdf, page1 used on inp
+ut line 56.
+(pdftex.def)             Requested size: 612.683pt x 796.02654pt.
+File: C:/Classes/ASA_Poster/BillPage3.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage3.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage3.pdf, page1 used on inp
+ut line 56.
+(pdftex.def)             Requested size: 612.683pt x 796.02654pt.
+File: C:/Classes/ASA_Poster/BillPage3.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage3.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage3.pdf, page1 used on inp
+ut line 56.
+(pdftex.def)             Requested size: 612.683pt x 796.02654pt.
+File: C:/Classes/ASA_Poster/BillPage3.pdf Graphic file (type pdf)
+
+<use C:/Classes/ASA_Poster/BillPage3.pdf, page 1>
+Package pdftex.def Info: C:/Classes/ASA_Poster/BillPage3.pdf, page1 used on inp
+ut line 56.
+(pdftex.def)             Requested size: 612.683pt x 796.02654pt.
+ [3 <C:/Classes/ASA_Poster/BillPage3.pdf>] (CREDOBill.aux) ) 
+Here is how much of TeX's memory you used:
+ 2119 strings out of 493634
+ 31512 string characters out of 3143735
+ 88844 words of memory out of 3000000
+ 5500 multiletter control sequences out of 15000+200000
+ 3640 words of font info for 14 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 36i,18n,40p,289b,422s stack positions out of 5000i,500n,10000p,200000b,50000s
+
+Output written on CREDOBill.pdf (3 pages, 528145 bytes).
+PDF statistics:
+ 38 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
+

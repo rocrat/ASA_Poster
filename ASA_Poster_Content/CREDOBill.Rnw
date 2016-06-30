@@ -1,0 +1,10 @@
+\documentclass{article}
+\usepackage{pdfpages}
+\begin{document}
+\includepdf{C:/Classes/ASA_Poster/BillPage1.pdf}
+\includepdf{C:/Classes/ASA_Poster/BillPage2.pdf}
+\includepdf{C:/Classes/ASA_Poster/BillPage3.pdf}
+
+
+
+\end{document}
