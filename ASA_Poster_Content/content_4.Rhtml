@@ -1,6 +1,8 @@
 <h4>Counts per Million: A compositional operation</h4>
 <p style="font-size:10px">Counts per million (CPM) transformation is a simple, and widely used, normalization method which adjusts reads of individual transcripts by the total number of reads allocated to the sample.  Generally, values are then log-transformed.
 $$log_2 (CPM(x_i)) = log_2(\frac{x_i+0.5}{(\sum_{j=1}^D x_j)+1} \times 10^6)$$
+where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> genes measured.
+</p>
 <ul style="font-size:10px">
   <li>What does CPM accomplish?</li>
     <ol style="I">

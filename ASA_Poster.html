@@ -230,18 +230,20 @@
 <div class="chunk" id="unnamed-chunk-5"><div class="rcode"><!--html_preserve--><h4>Counts per Million: A compositional operation</h4>
 <p style="font-size:10px">Counts per million (CPM) transformation is a simple, and widely used, normalization method which adjusts reads of individual transcripts by the total number of reads allocated to the sample.  Generally, values are then log-transformed.
 $$log_2 (CPM(x_i)) = log_2(\frac{x_i+0.5}{(\sum_{j=1}^D x_j)+1} \times 10^6)$$
+where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> genes measured.
+</p>
 <ul style="font-size:10px">
   <li>What does CPM accomplish?</li>
     <ol style="I">
       <li>CPM simply rescales the data, a compositional <i><b>closure</b></i> operation.</li>
       <li>Reads from each sample then sum to \(\approx\)1 million (due to arbitrary scaling)</li>
     </ol>
-  <li>What does CPM not accomplish?</li>
+  <li>What does CPM <i>not</i> accomplish?</li>
     <ol style="I">
       <li>Data still resides in the compositional simplex</li>
       <li>Multivariate methods may still produce spurious results due to the sum constraint</li>
     </ol>
-  <li>Other normalization methods (median, TMM, quantile normalizations, etc.) are also rescaling operations which induce a more uniform sum constraint accross samples.</li>
+  <li>Other normalization methods (median, TMM, quantile normalizations, etc.) are also rescaling operations which induce a more uniform sum constraint accross samples (although not identical).</li>
 </ul>
 </p>
 <p align="right">   <a href = "javascript:void(0)" onclick = "document.getElementById('content4').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
@@ -253,21 +255,51 @@ $$log_2 (CPM(x_i)) = log_2(\frac{x_i+0.5}{(\sum_{j=1}^D x_j)+1} \times 10^6)$$
 <div class="row">
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
-<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><!--html_preserve--><h4>Composition-based Quality Control</h4><!--/html_preserve--></div></div>
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content5').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
-
-    
+<div class="chunk" id="unnamed-chunk-6"><div class="rcode"><!--html_preserve--><h4>Composition-based Quality Control</h4>
+<p style="font-size:10px">We capitalize on the compositional nature of RNA-seq data to develop a quality control metric for sequencing runs</p>
+<ul style="font-size:10px">
+  <li>The number of reads/sample is constrained by total reads/sequencing run</li>
+  <li>We expect the proportion of reads each sample is allocated to be apprx. equal</li>
+  <li>CLR transformation allows the use of standard outlier detection methods (Cook's Distance/ GOF)
+</ul>
+<img src="./ASA_Poster_Content/images/CLR_QC.png" style="width:400px;height:195;">
+<div class="col-sm-10">
+  <p style="font-size:10px"><b>Figure 4.</b>Heatmap of CLR transformed reads showing the samples with an outlying proportion of the total reads in a sequencing run.</p>
+</div>
+<div class="col-sm-2">
+  <p align="right">
+    <a href = "javascript:void(0)" onclick = "document.getElementById('content5').style.display='block';document.getElementById('fade').style.display='block'">Expand</a>
+  </p>
+</div>
+
+<!--/html_preserve--></div></div>
     </form>
   </div>
+  
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
-<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><!--html_preserve--><h4>Sub-compositions and Amalgamations</h4><!--/html_preserve--></div></div>
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><!--html_preserve--><h4>Sub-compositions and Amalgamations</h4>
+<p style="font-size:10px">Recognizing the compositional nature of sequencing data leads to several useful properties:</p>
+<ul style="font-size:10px">
+  <li>Sub-Compositions</li>
+    <ol type="I">
+      <li>Ability to isolate sub-groups of probes from the sequenced gene set for focused analysis</li>
+      <li>Can reduce noise from excluded genes with high variation</li>
+    </ol>
+  <li>Amalgamations</li>
+    <ol type="I">
+      <li>Can collapse groups of genes with the same functionality into a single proportion</li>
+      <li>Facilitates the use of exploratory techniques for finding differences in pathways/functional groups</li>
+    </ol>  
+</ul>
+<p> <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
     </form>
   </div>
+  
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
-<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><!--html_preserve--><h4>Example Analysis</h4><!--/html_preserve--></div></div>
+<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><!--html_preserve--><h4>Example Analysis:Amalgamations</h4>
+<!--/html_preserve--></div></div>
     <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
     </form>
   </div>
