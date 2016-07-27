@@ -8,10 +8,6 @@ library(compositions)
 library(ggplot2)
 library(knitr)
 
-# knit("./ASA_Poster_Content/content_1.Rhtml", output = "./ASA_Poster_Content/content_1.html", quiet = TRUE)
-# knit("./ASA_Poster_Content/expanded_content_1.Rhtml", output = "./ASA_Poster_Content/expanded_content_1.html", quiet = TRUE)
-# knit("./ASA_Poster_Content/content_2.Rhtml", output = "./ASA_Poster_Content/content_2.html", quiet = TRUE)
-# knit("./ASA_Poster_Content/expanded_content_2.Rhtml", output = "./ASA_Poster_Content/expanded_content_2.html", quiet = TRUE)
 end.rcode-->
 
 <script type="text/javascript">
@@ -67,10 +63,21 @@ end.rcode-->
 
 <body>
 
-<h1 align="center"> Relative frequency measurements: Metrics for sample quality, sequencing integrity, and batch effects in targeted NGS.</h1>
-<h5 align="center"> Bonnie LaFleur<sup>1</sup>, Dominic LaRoche<sup>1,2</sup>, Kurt Michels<sup>1,2</sup>, Shripad Sinari<sup>2</sup>,  Dean Billhiemer<sup>2</sup></h3>
-<h6 align="center"> <sup>1</sup>HTG Molecular Diagnostics, Inc.,  <sup>2</sup>University of Arizona, Tucson AZ</h3>
-
+<h1 align="center" style="background-color:#ffd0a1"> Relative frequency measurements: Metrics for sample quality, sequencing integrity, and batch effects in targeted NGS.</h1>
+<div class="row">
+  <div class="col-sm-4">
+    <img src="./ASA_Poster_Content/images/HTG-Logo-top.png" style="height:45px;display:block;margin:auto">
+  </div>
+  
+  <div class="col-sm-4">
+    <h5 align="center"> Bonnie LaFleur<sup>1</sup>, Dominic LaRoche<sup>1,2</sup>, Kurt Michels<sup>1,2</sup>, Shripad Sinari<sup>2</sup>,  Dean Billhiemer<sup>2</sup></h5>
+    <h6 align="center"> <sup>1</sup>HTG Molecular Diagnostics, Inc.,  <sup>2</sup>University of Arizona, Tucson AZ</h6>
+  </div>
+  
+  <div class="col-sm-4">
+    <img src="./ASA_Poster_Content/images/UA_CPH_RGB_Primary.png" style="height:45px;display:block;margin:auto">
+  </div>
+</div>
 <!--<hr width="100%" size="10" color="orange" noshade>-->
 <!---Main Contents-->
 <div class="row">
@@ -130,7 +137,7 @@ end.rcode-->
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_7.html")
 end.rcode-->     
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+    
     </form>
   </div>
   <div class="col-sm-3">
@@ -138,7 +145,8 @@ end.rcode-->
 <!--begin.rcode
 includeHTML("./ASA_Poster_Content/content_8.html")
 end.rcode-->  
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+-->
     </form>
   </div>
 </div>
@@ -183,12 +191,15 @@ end.rcode-->
 </div>
 
 <div id="content7" class="white_content">
-    This is the expanded Content 7. 
-    <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/expanded_content_7.html")
+end.rcode--> 
 </div>
 
 <div id="content8" class="white_content">
-    This is the expanded Content 8. 
+<!--begin.rcode
+includeHTML("./ASA_Poster_Content/litCited.html")
+end.rcode-->      
     <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 <div id="fade" class="black_overlay"></div>

@@ -118,10 +118,21 @@
 
 <body>
 
-<h1 align="center"> Relative frequency measurements: Metrics for sample quality, sequencing integrity, and batch effects in targeted NGS.</h1>
-<h5 align="center"> Bonnie LaFleur<sup>1</sup>, Dominic LaRoche<sup>1,2</sup>, Kurt Michels<sup>1,2</sup>, Shripad Sinari<sup>2</sup>,  Dean Billhiemer<sup>2</sup></h3>
-<h6 align="center"> <sup>1</sup>HTG Molecular Diagnostics, Inc.,  <sup>2</sup>University of Arizona, Tucson AZ</h3>
-
+<h1 align="center" style="background-color:#ffd0a1"> Relative frequency measurements: Metrics for sample quality, sequencing integrity, and batch effects in targeted NGS.</h1>
+<div class="row">
+  <div class="col-sm-4">
+    <img src="./ASA_Poster_Content/images/HTG-Logo-top.png" style="height:45px;display:block;margin:auto">
+  </div>
+  
+  <div class="col-sm-4">
+    <h5 align="center"> Bonnie LaFleur<sup>1</sup>, Dominic LaRoche<sup>1,2</sup>, Kurt Michels<sup>1,2</sup>, Shripad Sinari<sup>2</sup>,  Dean Billhiemer<sup>2</sup></h5>
+    <h6 align="center"> <sup>1</sup>HTG Molecular Diagnostics, Inc.,  <sup>2</sup>University of Arizona, Tucson AZ</h6>
+  </div>
+  
+  <div class="col-sm-4">
+    <img src="./ASA_Poster_Content/images/UA_CPH_RGB_Primary.png" style="height:45px;display:block;margin:auto">
+  </div>
+</div>
 <!--<hr width="100%" size="10" color="orange" noshade>-->
 <!---Main Contents-->
 <div class="row">
@@ -130,9 +141,9 @@
 <div class="chunk" id="unnamed-chunk-2"><div class="rcode"><!--html_preserve-->
 
 <h4>Next-Generation Sequencing Data is Compositional</h4>
-    <p style="font-size:10px">Next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts (Robinson and Smyth 2007; Anders and Huber 2010; Robinson and Oshlack 2010; Law et al. 2014; Lovell et al. 2015). The relative nature of next-generation sequencing has important consequences for downstream analyses.</p>
-    <ul style="font-size:10px">
-      <li>There are several reasons NGS data are relative.</li>
+    <p style="font-size:12px">Next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts (Robinson and Smyth 2007; Anders and Huber 2010; Robinson and Oshlack 2010; Law et al. 2014; Lovell et al. 2015). The relative nature of next-generation sequencing has important consequences for downstream analyses.</p>
+    <ul style="font-size:12px">
+      <li>There are several reasons NGS data are compositions (Lovell et al. 2011).</li>
           <ul>
             <li>Finite sample volume from which DNA/RNA is extracted</li>
             <li>Finite number of reads available on each platform (as the number of reads increases for 1 transcript the number of available reads for the other transcripts decreases, Fig. 1)</li>
@@ -148,9 +159,9 @@
 -->
       <li>Traditional methods can produce misleading results for compositional data</li>
         <ul>
-          <li>Spurious correlation (Pearson...)</li>
+          <li>Spurious correlation (Pearson 1896)</li>
           <li>Univariate results may be misleading (Lovell et al. 2015)</li>
-          <li>Negative bias of the covariance matrix</li>
+          <li>Negative bias of the covariance matrix (Aitchison 1985)</li>
         </ul>
       
     </ul>
@@ -189,10 +200,10 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-6">
-    <p style="font-size:10px">Figure 2. Each figure above represents a simplex of 2, 3, and 4 components (Lovell et al. 2015).</p>
+  <div class="col-sm-8">
+    <p style="font-size:10px">Figure 2. Each figure above represents a simplex of 2, 3, and 4 components (figure source: Lovell et al. 2015).</p>
   </div>
-<!--  <div class="col-sm-6"> -->
+<!--  <div class="col-sm-6"> 
     <p align="right"> <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
 <!--  </div> -->
 </div><!--/html_preserve--></div></div>
@@ -222,7 +233,8 @@
   </div>
   <div class="col-sm-6">
     <p style="font-size:10px"><b>Figure 3.</b>The ALR transformation reduces the dimension of the composition but preserves the absolute relationships between the components.  Transformed data can then be used with standard multivariate methods.</p>
-    <p align="right">   <a href = "javascript:void(0)" onclick = "document.getElementById('content3').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<!--    <p align="right">   <a href = "javascript:void(0)" onclick = "document.getElementById('content3').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+-->
   </div>
 </div><!--/html_preserve--></div></div>
     
@@ -256,7 +268,8 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
 </ul>
 <p style="font-size:10px">CPM alleviates some, but not all, of the challenges imposed by compositional data.
 </p>
-<p align="right">   <a href = "javascript:void(0)" onclick = "document.getElementById('content4').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
+<!--<p align="right">   <a href = "javascript:void(0)" onclick = "document.getElementById('content4').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+--><!--/html_preserve--></div></div>
     
     </form>
   </div>
@@ -310,15 +323,55 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
   
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
-<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><!--html_preserve--><h4>Example Analysis:Amalgamations</h4>
+<div class="chunk" id="unnamed-chunk-8"><div class="rcode"><!--html_preserve--><h4>Example Exploratory Analysis: Amalgamations</h4>
+<ul>
+  <li>Analysis of 64 pancreas FFPE samples</li>
+  <ul>
+    <li>2 diseased (cancer) and 2 normal pancreas samples, each replicated 16 times</li>
+  </ul>
+  <li>HTG EdgeSeq Immuno-Oncology Assay</li>
+  <ul>
+    <li>549 genes</li>
+    <li>10 functional groups</li>
+  </ul>
+</ul>
+<div class="col-sm-6">
+  <img src="./ASA_Poster_Content/images/Celgene_IO_NPandDP_PCA_Amalg_CLR_NPDP_Identified.png" style="width:100%">
+</div>
+<div class="col-sm-6">
+  <img src="./ASA_Poster_Content/images/Celgene_IO_PCA_CLR_NPDP_AdhesionProbes_.png" style="width:100%">
+</div>
+<p style="font-size:10px">
+  Figure 6. Exploratory analysis of diseased and non-diseased pancreas samples. Left: PCA of the 10 amalgamated functional groups showing separation along the adhesion group. Right: PCA of the probes which constitute the adhesion group showing strong association with MUC1 and FN1.                     <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='block';document.getElementById('fade').style.display='block'">Expand</a>
+</p>
+
 <!--/html_preserve--></div></div>
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+    
     </form>
   </div>
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
-<div class="chunk" id="unnamed-chunk-9"><div class="rcode"><!--html_preserve--><h4>Discussion and Future Directions</h4><!--/html_preserve--></div></div>
-    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+<div class="chunk" id="unnamed-chunk-9"><div class="rcode"><!--html_preserve--><h4>Discussion and Future Directions</h4>
+<h5>Discussion</h5>
+<ul style="font-size:12px">
+  <li>Accounting for the compositional nature of next-generation sequencing data:</li>
+    <ul>
+      <li>Guards against spurious results</li>
+      <li>Opens new avenues for statistical process control and batch effect detection</li>
+      <li>Allows for dimension reduction and exploratory analyses</li>
+    </ul>
+</ul>
+<hr>
+<h5>Future Directions</h5>
+<ul style="font-size:12px">
+  <li>Leverage compositional data methods for developing classifiers</li>
+  <li>Investigate the use of housekeeping or control probes to improve analyses</li>
+  <li>Assess the impact of log-ratio transformation choice</li>
+</ul>
+<hr>
+<a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Literature Cited</a><!--/html_preserve--></div></div>
+<!--    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
+-->
     </form>
   </div>
 </div>
@@ -328,33 +381,36 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
 <div class="chunk" id="unnamed-chunk-10"><div class="rcode"><!--html_preserve-->
 <h4 align="center">Next-Generation Sequencing Data is Compositional</h4>
 <div class="col-sm-4">
-  <form class="well" style="height:800px;">
+  <form class="well" style="height:600px;">
     <h4>Background</h4>
-    <p style="font-size:10px">It is broadly accepted that next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts (Robinson and Smyth 2007; Anders and Huber 2010; Robinson and Oshlack 2010; Law et al. 2014; Lovell et al. 2015). The relative nature of next-generation sequencing has important consequences for downstream analyses.</p>
-    <ul style="font-size:10px">
+    <p>It is broadly accepted that next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts (Robinson and Smyth 2007; Anders and Huber 2010; Robinson and Oshlack 2010; Law et al. 2014; Lovell et al. 2015). The relative nature of next-generation sequencing has important consequences for downstream analyses.</p>
+    <ul>
       <li>NGS technologies produce <i>relative abundances</i> of transcripts</li>
-        <ol type="I">
+        <ul>
           <li>Finite sample volume from which DNA/RNA is extracted</li>
           <li>Finite number of reads available on each platform</li>
           <li>Read depth varies from run-to-run and sample-to-sample</li>
-        </ol>
+        </ul>
       <li>Relative abundance implies data arises as a composition</li>
-        <ol type="I">
+        <ul>
             <li>More reads allocated to a transcript results if fewer reads allocated to other transcripts</li>
             <li>Induces a dependency in the data (Fig. 1)</li>
-        </ol>
+        </ul>
     </ul>
     
   </form>
 </div>
 <div class="col-sm-4">
-  <form class="well">
+  <form class="well" style="height:600px;">
     <h4>NGS Workflow</h4>
     <img src="ASA_Poster_Content/images/NGS_Workflow.png" style="width:400px;height:400px;">
+    <p>
+      Figure a. Schematic of the next-generation sequencing workflow.  The number of clusters able to form on the flow cell limits the number of reads available on a sequencing run (Kircher and Kelso 2010). Figure source: <a href="http://www.illumina.com/content/dam/illumina-marketing/documents/products/illumina_sequencing_introduction.pdf">http://www.illumina.com/content/dam/illumina-marketing/documents/products/illumina_sequencing_introduction.pdf</a>
+    </p>
   </form>
 </div>
 <div class="col-sm-4">
-  <form class="well">
+  <form class="well" style="height:600px;">
   </form>
 </div>
 <!--/html_preserve--></div></div>
@@ -511,13 +567,13 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
     </ul>
     <hr width="70%">
     
-    <p>HTG Molecular Immuno-Ocology (IO) consists of 549 probes which can be amalgamated into 10 functional groups.  This dimensional reduction allows the use of visual exploratory methods such as PCA or clustering (see example analysis).</p>
+    <p>HTG Molecular Immuno-Ocology (IO) consists of 549 probes which can be amalgamated into 10 functional groups (right).  This dimensional reduction allows the use of visual exploratory methods such as PCA or clustering (see example analysis).</p>
   </form>  
 </div>
 
 <div class="col-sm-4">
   <form class="well" style="height:700px;">
-    <img src="./ASA_Poster_Content/images/IO gene list overview.png" style="height:100%">
+    <img src="./ASA_Poster_Content/images/IO gene list overview.png" style="height:100%;display:block;margin:auto;background-color:white">
     
   </form>
   <p align="right">
@@ -530,12 +586,87 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
 </div>
 
 <div id="content7" class="white_content">
-    This is the expanded Content 7. 
-    <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+<div class="chunk" id="unnamed-chunk-14"><div class="rcode"><!--html_preserve-->
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h4 align="center">Example Exploratory Analysis: Amalgamations</h4>
+    <ul style="font-size:12px">
+      <li>Analysis of 64 pancreas FFPE samples</li>
+        <ul>
+          <li>2 diseased (cancer) and 2 normal pancreas samples, each replicated 16 times</li>
+        </ul>
+      <li>HTG EdgeSeq Immuno-Oncology Assay</li>
+        <ul>
+          <li>549 genes</li>
+          <li>10 functional groups</li>
+        </ul>
+    </ul>
+    <h5 align="center">Initial Amalgamation</h5>
+    <img src="./ASA_Poster_Content/images/Celgene_IO_NPandDP_PCA_Amalg_CLR_NPDP_Identified_big.png" style="width:100%">
+    <p style="font-size:12px">
+      Figure 6a: Principle components analysis (covariance biplot) of the 10 amalgamated groups.  By reducing the dimension of the 549  probes through a scientifically derived hierarchical amalgamation we are able to determine which functional groups of probes are associated with the separation of healthy and diseased pancreas samples.  From this plot we identify adhesion and immune function groups for further analysis.    
+    </p>
+  </form>  
+</div>
+
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h5 align="center">Adhesion Group</h5>
+    <img src="./ASA_Poster_Content/images/Celgene_IO_PCA_CLR_NPDP_AdhesionProbes_big.png" style="height:38%;display:block;margin:auto">
+    <p style="font-size:12px">
+      Figure 6b: Covariance biplot of the 79 genes in the cell adhesion functional group showing both MUC1 and FN1 genes associated with separation of diseased and normal samples. 
+    </p>
+    <img src="./ASA_Poster_Content/images/Celgene_IO_CLR_NPDP_AdhesionProbes_Diff(sidebyside).png" style="height:38%;display:block;margin:auto">
+    <p style="font-size:12px">
+      Figure 6c: Average of the CLR transformed reads for the cell adhesion functional group genes.  The two genes identified by the covariance biplot, MUC1 and FN1, exhibit the greatest difference in proportions between diseased and normal samples. 
+    </p>
+  </form>  
+</div>
+
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h5 align="center">Immune Function Group</h5>
+      <img src="./ASA_Poster_Content/images/Celgene_IO_PCA_CLR_NPDP_ImmunFuncProbes.png" style="height:38%;display:block;margin:auto">
+      <p style="font-size:12px">
+        Figure 6d: Covariance biplot of the 15 genes in the immune function group showing the DEFB1 gene associated with the separation of diseased and normal samples.  
+      </p>
+      <img src="./ASA_Poster_Content/images/Celgene_IO_CLR_NPDP_ImmunFuncProbes_Diff(sidebyside).png" style="height:38%;display:block;margin:auto">
+      <p style="font-size:12px">
+        Figure 6e: Average of the CLR transformed reads for the immune function group of genes.  The largest difference in proportion between diseased and normal samples is in the DEFB1 gene. 
+      </p>
+  </form>
+  <p align="right">
+    <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+  </p>
+</div>
+  
+    <!--/html_preserve--></div></div>
 </div>
 
 <div id="content8" class="white_content">
-    This is the expanded Content 8. 
+<div class="chunk" id="unnamed-chunk-15"><div class="rcode"><!--html_preserve-->
+
+<form class="well" style="height:700px;">
+  <h4>Literature Cited</h4>
+  <ul >
+    <li style="margin-bottom:20px">Aitchison, J (1985). The statistical analysis of compositional data. Chapman & Hall, Ltd. isbn: 0-412-28060-4. url: <a href="http://dl.acm.org/citation.cfm?id=17272">http://dl.acm.org/citation.cfm?id=17272</a></li>
+    
+    <li style="margin-bottom:20px">Anders, Simon and W Huber (2010). Differential expression analysis for sequence count data". In: GenomeBiol 11.10, R106. issn: 1465-6906. doi: 10.1186/gb-2010-11-10-r106. url: <a href="http://www.biomedcentral.com/content/pdf/gb-2010-11-10-r106.pdf">http://www.biomedcentral.com/content/pdf/gb-2010-11-10-r106.pdf</a></li>
+    
+    <li style="margin-bottom:20px">Kircher, Martin and J Kelso (2010). High-throughput DNA sequencing – concepts and limitations. Bioessays 32: 424-536. url: <a href="http://barleyworld.org/sites/default/files/d912f51131ed787b91.pdf">http://barleyworld.org/sites/default/files/d912f51131ed787b91.pdf</a></li>
+    
+    <li style="margin-bottom:20px">Law, Charity W et al. (2014). voom: Precision weights unlock linear model analysis tools for RNA-seq read counts." En. In: Genome biology 15.2, R29. issn: 1465-6914. doi: 10.1186/gb-2014-15-2-r29. url: <a href="http://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29">http://genomebiology.biomedcentral.com/articles/10.1186/gb-2014-15-2-r29</a></li>
+    
+    <li style="margin-bottom:20px">Lovell, David et al. (2011). \Proportions, Percentages, PPM: Do The Molecular Biosciences Treat Compositional Data Right?" In: Compositional Data Analysis: Theory and Applications. October. John Wiley & Sons, Ltd, pp. 191{207. isbn: 9780470711354. doi: 10 . 1002 / 9781119976462 . ch14. url: <a href="http://dx.doi.org/10.1002/9781119976462.ch14">http://dx.doi.org/10.1002/9781119976462.ch14</a></li>
+    
+    <li style="margin-bottom:20px">Lovell, David et al. (2015). Proportionality: A Valid Alternative to Correlation for Relative Data." In: PLoS computational biology 11.3, e1004075. issn: 1553-7358. doi: 10.1371/journal.pcbi.1004075. url: <a href="http://www.ncbi.nlm.nih.gov/pubmed/25775355">http://www.ncbi.nlm.nih.gov/pubmed/25775355</a></li>
+    
+    <li style="margin-bottom:20px">Pearson, Karl (1896). Mathematical Contributions to the Theory of Evolution.{On a Form of Spurious Correlation Which May Arise When Indices Are Used in the Measurement of Organs. In: Proceedings of the Royal Society of London 60, pp. 489-498. url: <a href="https://archive.org/details/philtrans00847732">https://archive.org/details/philtrans00847732</a></li>
+
+  </ul>
+  
+  <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+</form>  <!--/html_preserve--></div></div>
     <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
 <div id="fade" class="black_overlay"></div>
