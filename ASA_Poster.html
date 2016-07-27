@@ -122,6 +122,7 @@
 <h5 align="center"> Bonnie LaFleur<sup>1</sup>, Dominic LaRoche<sup>1,2</sup>, Kurt Michels<sup>1,2</sup>, Shripad Sinari<sup>2</sup>,  Dean Billhiemer<sup>2</sup></h3>
 <h6 align="center"> <sup>1</sup>HTG Molecular Diagnostics, Inc.,  <sup>2</sup>University of Arizona, Tucson AZ</h3>
 
+<!--<hr width="100%" size="10" color="orange" noshade>-->
 <!---Main Contents-->
 <div class="row">
   <div class="col-sm-3">
@@ -129,26 +130,28 @@
 <div class="chunk" id="unnamed-chunk-2"><div class="rcode"><!--html_preserve-->
 
 <h4>Next-Generation Sequencing Data is Compositional</h4>
-    <p style="font-size:10px">It is broadly accepted that next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts (Robinson and Smyth 2007; Anders and Huber 2010; Robinson and Oshlack 2010; Law et al. 2014; Lovell et al. 2015). The relative nature of next-generation sequencing has important consequences for downstream analyses.</p>
+    <p style="font-size:10px">Next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts (Robinson and Smyth 2007; Anders and Huber 2010; Robinson and Oshlack 2010; Law et al. 2014; Lovell et al. 2015). The relative nature of next-generation sequencing has important consequences for downstream analyses.</p>
     <ul style="font-size:10px">
       <li>There are several reasons NGS data are relative.</li>
-          <ol type="I">
+          <ul>
             <li>Finite sample volume from which DNA/RNA is extracted</li>
-            <li>Finite number of reads available on each platform</li>
+            <li>Finite number of reads available on each platform (as the number of reads increases for 1 transcript the number of available reads for the other transcripts decreases, Fig. 1)</li>
             <li>Read depth (number of reads allocated to a sample) varies from run-to-run and sample-to-sample</li>
-          </ol>
-      <li>The number of reads for a given transcript is affected by a number of experiment level factors including (Sims et al. 2014):</li>
-        <ol type="I">
+          </ul>
+<!-- This might be more appropriate somewhere else          
+      <li>The number of reads for a given transcript can be affected by a number of <i>experiment level</i> factors including (Sims et al. 2014):</li>
+        <ul>
           <li>Read depth of the sequencing run (sequencing platform)</li>
           <li>Number of samples included in a sequencing run</li>
           <li>Volume of sample input</li>
-        </ol>
-      <li>Relative abundance implies data arises as a composition</li>
-        <ol type="I">
-            <li>Data are often given as reads per kilobase per million reads (RPKM) or counts per million (CPM) to account for differences in read depth.</li>
-            <li>More reads allocated to any one transcript results if fewer reads allocated to all other transcripts</li>
-            <li>Induces a dependency in the data since as one component increases, the other must decrease (Fig. 1).</li>
-        </ol>
+        </ul>
+-->
+      <li>Traditional methods can produce misleading results for compositional data</li>
+        <ul>
+          <li>Spurious correlation (Pearson...)</li>
+          <li>Univariate results may be misleading (Lovell et al. 2015)</li>
+          <li>Negative bias of the covariance matrix</li>
+        </ul>
       
     </ul>
 <p align="right"> <a href = "javascript:void(0)" onclick = "document.getElementById('content1').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
@@ -161,10 +164,10 @@
   
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
-<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><!--html_preserve--><h4>Challenges of Compositional Data</h4>
-<p style="font-size:10px">Relative abundance data is subject to an arbitrary sum constraint, \(\sum_{i=1}^{D} t_i = \mathbb{T} \), where \(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</p>
+<div class="chunk" id="unnamed-chunk-3"><div class="rcode"><!--html_preserve--><h4>Properties of Compositional Data</h4>
+<p style="font-size:10px">Relative abundance data arise from an arbitrary sum constraint, \(\sum_{i=1}^{D} t_i = \mathbb{T} \), where \(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</p>
   <ol type="I" style="font-size:10px">
-    <li>The sum contraint, \(\mathbb{T}\), changes between platforms, sequencing runs, and samples.</li>
+    <li>The sum contraint, \(\mathbb{T}\), can change between platforms, sequencing runs, and samples.</li>
     <li>This leads to an arbitrary difference in <i>scale</i> between samples which various normalization methods have sought to correct.</li>
   </ol>
 <div class="row">
@@ -182,12 +185,12 @@
     <img src="./ASA_Poster_Content/images/SimplexGeometry.png" style="width:200px;height:75px>">
   </div>
   <div class="col-sm-6">
-    <p style="font-size:10px">Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).  As a result of the constraints on compositional data, the covariance matrix of a composition is difficult to interpret due to negative bias and sub-composition inconsistency. </p>
+    <p style="font-size:10px">Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).  As a result of the constraints on compositional data, the covariance matrix of an un-transformed composition is difficult to interpret. </p>
   </div>
 </div>
 <div class="row">
   <div class="col-sm-6">
-    <p style="font-size:10px">Figure 2. Each figure above represents a simplex of 2, 3, and 4 components.</p>
+    <p style="font-size:10px">Figure 2. Each figure above represents a simplex of 2, 3, and 4 components (Lovell et al. 2015).</p>
   </div>
 <!--  <div class="col-sm-6"> -->
     <p align="right"> <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
@@ -202,16 +205,16 @@
 <p style="font-size:10px">Many problems induced by compositional data can be aleviated by working with <i><b>log-ratios</b></i> of components. John Aitchison (1985) outlined several operations for working with compositions:</p>
 <ul style="font-size:10px">
   <li>Additive Log-Ratio (ALR): \( ALR (x_i) = log (\frac{x_i}{x_D})  \), where \(x_D\) is the \(D^{th}\) component of the vector X.</li>
-    <ol type="I">
+    <ul>
       <li>Interpretable variance-covariance matrix</li>
       <li>Does not treat all components equally as one component is used for denominator</li>
-    </ol>
+    </ul>
   <li>Centered Log-Ratio (CLR): \( CLR (x_i) = log( \frac{x_i}{g(X)}) \), where \(g(X)\) is the geometric mean of X.</li>
-    <ol type="I">
+    <ul>
       <li>Interpretable variance-covariance matrix</li>
       <li>Preserves the dimension of the original composition</li>
       <li>Resulting variance-covariance matrix is singular</li>
-    </ol>
+    </ul>
 </ul>
 <div class="row">
   <div class="col-sm-6">
@@ -228,23 +231,30 @@
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-5"><div class="rcode"><!--html_preserve--><h4>Counts per Million: A compositional operation</h4>
-<p style="font-size:10px">Counts per million (CPM) transformation is a simple, and widely used, normalization method which adjusts reads of individual transcripts by the total number of reads allocated to the sample.  Generally, values are then log-transformed.
+<p style="font-size:10px">Counts per million (CPM) transformation is a simple, and widely used, standardization method which adjusts reads of individual transcripts by the total number of reads allocated to the sample.  Generally, values are then log-transformed.
 $$log_2 (CPM(x_i)) = log_2(\frac{x_i+0.5}{(\sum_{j=1}^D x_j)+1} \times 10^6)$$
 where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> genes measured.
 </p>
 <ul style="font-size:10px">
   <li>What does CPM accomplish?</li>
-    <ol style="I">
+    <ul>
       <li>CPM simply rescales the data, a compositional <i><b>closure</b></i> operation.</li>
-      <li>Reads from each sample then sum to \(\approx\)1 million (due to arbitrary scaling)</li>
-    </ol>
+      <li>Reads from each sample then sum to \(\approx\)1 million</li>
+    </ul>
   <li>What does CPM <i>not</i> accomplish?</li>
-    <ol style="I">
+    <ul>
       <li>Data still resides in the compositional simplex</li>
-      <li>Multivariate methods may still produce spurious results due to the sum constraint</li>
-    </ol>
-  <li>Other normalization methods (median, TMM, quantile normalizations, etc.) are also rescaling operations which induce a more uniform sum constraint accross samples (although not identical).</li>
+      <li>Traditional methods may still produce spurious results</li>
+        <ul>
+          <li>Spurious correlation</li>
+          <li>Negatively biased covariance matrix</li>
+          <li>etc.</li>
+        </ul>
+    </ul>
+<!--  <li>Other normalization methods (median, TMM, quantile normalizations, etc.) are also rescaling operations which induce a more uniform sum constraint accross samples (although not identical).</li>
+-->
 </ul>
+<p style="font-size:10px">CPM alleviates some, but not all, of the challenges imposed by compositional data.
 </p>
 <p align="right">   <a href = "javascript:void(0)" onclick = "document.getElementById('content4').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
     
@@ -290,8 +300,10 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
     <ol type="I">
       <li>Can collapse groups of genes with the same functionality into a single proportion</li>
       <li>Facilitates the use of exploratory techniques for finding differences in pathways/functional groups</li>
+      <li>Amalgamations retain compositional structure</li>
     </ol>  
 </ul>
+<img src="ASA_Poster_Content/images/hierarchicalCluster.png" style="height:120px">
 <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
     </form>
   </div>
@@ -384,7 +396,7 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
       <li>Complicated covariance structure</li>
     </ol>-->
     <img src="./ASA_Poster_Content/images/SimplexGeometry.png" style="width:300px;height:125px>">
-  
+  </form>
 </div><!--/html_preserve--></div></div>
     <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
 </div>
@@ -400,13 +412,109 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
 </div>
 
 <div id="content5" class="white_content">
-    This is the expanded Content 5. 
-    <a href = "javascript:void(0)" onclick = "document.getElementById('content5').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+<div class="chunk" id="unnamed-chunk-12"><div class="rcode"><!--html_preserve-->
+
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h4 align="center">Composition-Based Quality Control</h4>
+    <p>We capitalize on the compositional nature of RNA-seq data to develop a quality control metric for sequencing runs</p>
+    <ul>
+      <li>The number of reads/sample is constrained by total reads/sequencing run.</li>
+      <li>We expect the reads to be proportionally allocated accross samples.  Samples with unusully low or high reads indicate a possible problem with the sample preparation or sequencing run</li>
+      <li>CLR transformation allows the use of standard outlier detection methods (Cook's Distance/ GOF).</li>
+    </ul>
+    <img src="./ASA_Poster_Content/images/CLR_QC.png" style="width:100%;">
+    
+      <p><b>Figure 4.</b>Heatmap of CLR transformed reads showing the samples with a very small proportion of the total reads in a sequencing run.</p>
+  </form>  
+</div>
+
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h4 align="center">Batch Effect Detection (without normalization)</h4>
+    <p>
+    Batch effects are technical variation that can possibly confound biologic variation
+    <ul>
+      <li>Typical methods for detection of batch effects:
+        <ul>
+          <li>Multivariate methods - Principle Components Analysis or Hierarchical Clustering</li>
+          <li>Visual inspection</li>
+        </ul>
+          
+      <li>Traditional batch effect detection with multivariate methods requires prior sample normalization</li>
+        <ul>
+          <li>Requires multiple samples and must be re-normalized when a new sample is added</li>
+          <li>Generally assumes most transcripts are equally expressed</li>
+          <li>Euclidean distance can be misleading when measuring distances between compositions (Aitchison 1985)</li>
+        </ul>
+      <li>CLR transformation permits batch effect detection using PCA without additional normalization</li>
+        <ul>
+          <li>CLR covariances are interpretable in \( R^k \)</li>
+          <li>Aitchison distance (1986) provides compositional equivalent to Euclidean distance</li>
+          \[ d_A(x, y) = ||clr(x) - clr(y)||_2 \]
+          <li>Enables the use of methods which utilize correlations or distances (e.g. PCA, clustering, outlier detection)</li>
+          <li>Applied to individual samples - no need to re-transform if new samples are added</li>
+          <li>No assumption about the similarity of samples (e.g. most transcripts are equally expressed)</li>
+        </ul>
+    </ul>    
+    
+    </p>
+    
+  </form>  
+</div>
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h5 align="center">PCA on log(Raw) Read Counts</h5>
+    <img src="./ASA_Poster_Content/images/miRNA_Repro_PCA_log(raw).png" style="width:75%" align="center">
+    <h5 align="center">PCA on CLR Transformed Read Counts</h5>
+    <img src="./ASA_Poster_Content/images/miRNA_Repro_PCA_CLR.png" style="width:75%" align="center">
+    <p style="font-size:10px">Principle components analysis of log-counts (top) and centered log-ratio (CLR) transformed counts (bottom).  Although no batch effects are detected in these data, the CLR transformation removes unwanted variation allowing clear separation of the sample types.</p>
+  </form>
+  <p align="right">
+    <a href = "javascript:void(0)" onclick = "document.getElementById('content5').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+  </p>
+</div>
+  
+    <!--/html_preserve--></div></div>
+    
 </div>
 
 <div id="content6" class="white_content">
-    This is the expanded Content 6. 
-    <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+<div class="chunk" id="unnamed-chunk-13"><div class="rcode"><!--html_preserve-->
+
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h4 align="center">Sub-Compositions</h4>
+      <ul>
+        <li>Ability to isolate sub-groups of probes from the sequenced gene set for focused analysis</li>
+        <li>Can reduce noise from excluded genes with high variation</li>
+      </ul>
+    <p>The sub-compositional consitency of compositional methods can allow the evaluation of control or housekeeping probes for the evaluation of sample quality</p>
+    <img src="./ASA_Poster_Content/images/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png" width="100%" align="center">
+      
+  </form>  
+</div>
+
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h4 align="center">Amalgamations</h4>
+    
+    
+  </form>  
+</div>
+
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+    <h5 align="center">PCA on log(Raw) Read Counts</h5>
+    
+  </form>
+  <p align="right">
+    <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+  </p>
+</div>
+  
+    <!--/html_preserve--></div></div>
+    
 </div>
 
 <div id="content7" class="white_content">

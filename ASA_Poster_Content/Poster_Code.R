@@ -3,6 +3,10 @@ library(ggplot2)
 library(compositions)
 library(cowplot)
 library(animation)
+library(reshape2)
+library(plyr)
+library(dplyr)
+library(HTGPackage)
 
 cpm.stand <- function(x){
   # browser()
@@ -118,3 +122,47 @@ for(i in 1:length(changes)){
 # shell('convert.exe -loop 0 -delay 100 C:\Classes\Dissertation\ASA_Poster_Content\images\Demostrate_CoDA_Diff1.png C:\Classes\Dissertation\ASA_Poster_Content\images\Demostrate_CoDA_Diff2.png C:\Classes\Dissertation\ASA_Poster_Content\images\Demostrate_CoDA_Diff3.png C:\Classes\Dissertation\ASA_Poster_Content\images\Demostrate_CoDA_Diff4.png C:\Classes\Dissertation\ASA_Poster_Content\images\Demostrate_CoDA_Diff5.png C:\Classes\Dissertation\ASA_Poster_Content\images\Demostrate_CoDA_Diff6.png "C:\Classes\Dissertation\ASA_Poster_Content\DiffAnimation.gif"')
 # 
 # files <- list.files("C:\\Classes\\Dissertation\\ASA_Poster_Content\\images", pattern = "Diff")
+library(ggplot2)
+load("../Paper1/Data/miRNA_Data_lists.Rdata")
+raw.w.mi <- join_all(dflist_mi, by = "X1")
+names(raw.w.mi) <- make.names(raw.w.mi[3, ])
+rownames(raw.w.mi) <- make.names(raw.w.mi[, 1])
+rawPos.mi <- raw.w.mi[which(grepl("POS", rownames(raw.w.mi))), -1]
+clrPos.mi <- as.data.frame(t(clr(acomp(t(data.matrix((rawPos.mi)))), detectionLimit = 0)))
+CLRpos <- as.data.frame(t(clr(acomp(t(data.matrix((raw.w.mi[-c(1:5), -1])))), detectionLimit = 0)))
+CLRpos <- CLRpos[which(grepl("POS", rownames(CLRpos))), ]
+
+rawPos.mi$Probe <- rownames(rawPos.mi)
+rawPosl.mi <- melt(rawPos.mi, id = "Probe")
+rawPosl.mi$Type <- "log(Raw)"
+rawPosl.mi$value <- log(as.numeric(as.character(rawPosl.mi$value)))
+
+clrPos.mi$Probe <- rownames(clrPos.mi)
+clrPosl.mi <- melt(clrPos.mi, id = "Probe")
+clrPosl.mi$Type <- "CLR (sub-composition)"
+
+CLRpos$Probe <- rownames(CLRpos)
+CLRposl <- melt(CLRpos, id = "Probe")
+CLRposl$Type <- "CLR (full-composition)"
+
+posl.mi <- rbind(rawPosl.mi, clrPosl.mi, CLRposl)
+suspects <- c("run229.FFPE_3_1")#, "run228.Brain_5_1", "run228.Plasma_7_1")
+posl.mi$lowTotal <- ifelse(posl.mi$variable %in% suspects, "Low", "Normal")
+posl.mi$Plate <- factor(gsub("(^run\\d{3})\\.(\\w+)\\_\\d{1,2}.+$", "\\1", posl.mi$variable))
+posl.mi$SampType <- factor(gsub("(^run\\d{3})\\.([a-zA-Z]+)\\_\\d{1,2}.+$", "\\2", posl.mi$variable, perl = TRUE))
+
+miPosCntrl <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = lowTotal)) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Subjective Assessment of CLR on Total Reads (from heatmap)")
+# ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes.png", miPosCntrl, width = 7, height = 8 )
+
+miPosCntrl_plate <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = Plate), alpha = .5) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Plate") + guides(colour = guide_legend(override.aes = list(alpha = 1)))
+# ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byPlate.png", miPosCntrl_plate, width = 7, height = 8)
+
+miPosCntrl_type <- ggplot(posl.mi[which(posl.mi$Type != "log(Raw)"), ], aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = SampType), alpha = .5) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_discrete("Sample Type") + guides(colour = guide_legend(override.aes = list(alpha = 1)))
+ggsave("./ASA_Poster_Content/images/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png", miPosCntrl_type, width = 7, height = 8)
+
+
+
+#look at the total reads in relation to the proportionality
+posl.mi <- merge(posl.mi, dfl_mi, by.x = "variable", by.y = 0)
+miPosCntrl_total <- ggplot(posl.mi, aes(x = Probe, y = value, group = variable )) + geom_point() + geom_line(aes(color = log2(Total.Reads))) + facet_wrap(~Type, ncol = 1, scales = "free_y") + plotTheme() + scale_color_gradient2("Total Reads",low = "red", mid = "grey", high = "blue", midpoint = median(log2(dfl_mi$Total.Reads))) 
+# ggsave("./Paper1/Figures/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byTotal.png", miPosCntrl_total, width = 7, height = 8)

@@ -1,7 +1,7 @@
-<h4>Challenges of Compositional Data</h4>
-<p style="font-size:10px">Relative abundance data is subject to an arbitrary sum constraint, \(\sum_{i=1}^{D} t_i = \mathbb{T} \), where \(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</p>
+<h4>Properties of Compositional Data</h4>
+<p style="font-size:10px">Relative abundance data arise from an arbitrary sum constraint, \(\sum_{i=1}^{D} t_i = \mathbb{T} \), where \(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</p>
   <ol type="I" style="font-size:10px">
-    <li>The sum contraint, \(\mathbb{T}\), changes between platforms, sequencing runs, and samples.</li>
+    <li>The sum contraint, \(\mathbb{T}\), can change between platforms, sequencing runs, and samples.</li>
     <li>This leads to an arbitrary difference in <i>scale</i> between samples which various normalization methods have sought to correct.</li>
   </ol>
 <div class="row">
@@ -19,12 +19,12 @@
     <img src="./ASA_Poster_Content/images/SimplexGeometry.png" style="width:200px;height:75px>">
   </div>
   <div class="col-sm-6">
-    <p style="font-size:10px">Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).  As a result of the constraints on compositional data, the covariance matrix of a composition is difficult to interpret due to negative bias and sub-composition inconsistency. </p>
+    <p style="font-size:10px">Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).  As a result of the constraints on compositional data, the covariance matrix of an un-transformed composition is difficult to interpret. </p>
   </div>
 </div>
 <div class="row">
   <div class="col-sm-6">
-    <p style="font-size:10px">Figure 2. Each figure above represents a simplex of 2, 3, and 4 components.</p>
+    <p style="font-size:10px">Figure 2. Each figure above represents a simplex of 2, 3, and 4 components (Lovell et al. 2015).</p>
   </div>
 <!--  <div class="col-sm-6"> -->
     <p align="right"> <a href = "javascript:void(0)" onclick = "document.getElementById('content2').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
