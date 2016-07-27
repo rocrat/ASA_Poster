@@ -8,7 +8,7 @@
         <li>Can reduce noise from excluded genes with high variation</li>
       </ul>
     <p>The sub-compositional consitency of compositional methods can allow the evaluation of control or housekeeping probes for the evaluation of sample quality</p>
-    <img src="./ASA_Poster_Content/images/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png" width="100%" align="center">
+    <img src="./ASA_Poster_Content/images/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png" style="width:100%;display:block;margin:auto">
       
   </form>  
 </div>
@@ -16,14 +16,26 @@
 <div class="col-sm-4">
   <form class="well" style="height:700px;">
     <h4 align="center">Amalgamations</h4>
+    <ul>
+      <li>Can collapse groups of genes with the same functionality into a single proportion</li>
+      <li>Facilitates the use of exploratory techniques for finding differences in pathways/functional groups by reducing the dimension of the data</li>
+      <li>Amalgamations retain compositional structure</li>
+      <li>Examples of hierarchical amalgamations:</li>
+        <ul>
+          <li>Total reads over entire run</li>
+          <li>Sample level total reads</li>
+          <li>Reads assigned to functional groups of transcripts (Housekeeping, oncogenes, etc.)</li>
+        </ul>
+    </ul>
+    <hr width="70%">
     
-    
+    <p>HTG Molecular Immuno-Ocology (IO) consists of 549 probes which can be amalgamated into 10 functional groups (right).  This dimensional reduction allows the use of visual exploratory methods such as PCA or clustering (see example analysis).</p>
   </form>  
 </div>
 
 <div class="col-sm-4">
   <form class="well" style="height:700px;">
-    <h5 align="center">PCA on log(Raw) Read Counts</h5>
+    <img src="./ASA_Poster_Content/images/IO gene list overview.png" style="height:100%;display:block;margin:auto">
     
   </form>
   <p align="right">

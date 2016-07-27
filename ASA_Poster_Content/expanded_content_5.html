@@ -36,7 +36,7 @@
       <li>CLR transformation permits batch effect detection using PCA without additional normalization</li>
         <ul>
           <li>CLR covariances are interpretable in \( R^k \)</li>
-          <li>Aitchison distance (1986) provides compositional equivalent to Euclidean distance</li>
+          <li><b>Aitchison distance</b> (1986) provides compositional equivalent to Euclidean distance</li>
           \[ d_A(x, y) = ||clr(x) - clr(y)||_2 \]
           <li>Enables the use of methods which utilize correlations or distances (e.g. PCA, clustering, outlier detection)</li>
           <li>Applied to individual samples - no need to re-transform if new samples are added</li>
@@ -51,9 +51,9 @@
 <div class="col-sm-4">
   <form class="well" style="height:700px;">
     <h5 align="center">PCA on log(Raw) Read Counts</h5>
-    <img src="./ASA_Poster_Content/images/miRNA_Repro_PCA_log(raw).png" style="width:75%" align="center">
+    <img src="./ASA_Poster_Content/images/miRNA_Repro_PCA_log(raw).png" style="width:75%;display:block;margin:auto">
     <h5 align="center">PCA on CLR Transformed Read Counts</h5>
-    <img src="./ASA_Poster_Content/images/miRNA_Repro_PCA_CLR.png" style="width:75%" align="center">
+    <img src="./ASA_Poster_Content/images/miRNA_Repro_PCA_CLR.png" style="width:75%;display:block;margin:auto">
     <p style="font-size:10px">Principle components analysis of log-counts (top) and centered log-ratio (CLR) transformed counts (bottom).  Although no batch effects are detected in these data, the CLR transformation removes unwanted variation allowing clear separation of the sample types.</p>
   </form>
   <p align="right">
