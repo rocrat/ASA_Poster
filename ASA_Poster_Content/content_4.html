@@ -1,9 +1,11 @@
 <h4>Counts per Million: A compositional operation</h4>
-<p style="font-size:10px">Counts per million (CPM) transformation is a simple, and widely used, standardization method which adjusts reads of individual transcripts by the total number of reads allocated to the sample.  Generally, values are then log-transformed.
-$$log_2 (CPM(x_i)) = log_2(\frac{x_i+0.5}{(\sum_{j=1}^D x_j)+1} \times 10^6)$$
-where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> genes measured.
-</p>
-<ul style="font-size:10px">
+<ul style="font-size:12px">
+  <li>Counts per million (CPM) transformation is a widely used standardization method
+    \[log_2 (CPM(x_i)) = log_2(\frac{x_i+0.5}{(\sum_{j=1}^K x_j)+1} \times 10^6) \]
+    where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>K</i> genes measured.
+  </li> 
+</ul>
+<ul style="font-size:12px">
   <li>What does CPM accomplish?</li>
     <ul>
       <li>CPM simply re-scales the data, a compositional <i><b>closure</b></i> operation.</li>
@@ -15,14 +17,6 @@ where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>D</i> gen
       <li>Traditional methods may still produce spurious results</li>
         <ul>
           <li>Spurious correlation</li>
-          <li>Negatively biased covariance matrix</li>
-          <li>etc.</li>
+          <li>Negatively biased covariance matrix, etc.</li>
         </ul>
     </ul>
-<!--  <li>Other normalization methods (median, TMM, quantile normalizations, etc.) are also rescaling operations which induce a more uniform sum constraint accross samples (although not identical).</li>
--->
-</ul>
-<p style="font-size:10px">CPM alleviates some, but not all, of the challenges imposed by compositional data.
-</p>
-<!--<p align="right">   <a href = "javascript:void(0)" onclick = "document.getElementById('content4').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
--->
