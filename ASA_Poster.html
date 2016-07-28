@@ -241,16 +241,16 @@
       <li>CPM simply re-scales the data, a compositional <i><b>closure</b></i> operation.</li>
       <li>Reads from each sample then sum to \(\approx\)1 million</li>
     </ul>
-  <li>What does CPM <i>not</i> accomplish?</li>
+  <li style="margin-top:15px">What does CPM <i>not</i> accomplish?</li>
     <ul>
       <li>Data still resides in the compositional simplex</li>
       <li>Traditional methods may still produce spurious results</li>
         <ul>
           <li>Spurious correlation</li>
-          <li>Negatively biased covariance matrix</li>
-          <li>etc.</li>
+          <li>Negatively biased covariance matrix, etc.</li>
         </ul>
-    </ul><!--/html_preserve--></div></div>
+    </ul>
+</ul><!--/html_preserve--></div></div>
     
     </form>
   </div>
@@ -260,8 +260,7 @@
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-6"><div class="rcode"><!--html_preserve--><h4>Composition-Based Quality Control</h4>
-<p style="font-size:10px">We capitalize on the compositional nature of RNA-seq data to develop a quality control metric for sequencing runs</p>
-<ul style="font-size:10px">
+<ul style="font-size:12px">
   <li>The number of reads/sample is constrained by total reads/sequencing run</li>
   <li>We expect the proportion of reads each sample is allocated to be apprx. equal</li>
   <li>CLR transformation allows the use of standard outlier detection methods (Cook's Distance/ GOF)
@@ -283,22 +282,23 @@
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-7"><div class="rcode"><!--html_preserve--><h4>Sub-compositions and Amalgamations</h4>
-<p style="font-size:10px">Recognizing the compositional nature of sequencing data leads to several useful properties:</p>
-<ul style="font-size:10px">
-  <li>Sub-Compositions</li>
-    <ul>
-      <li>Ability to isolate sub-groups of probes from the sequenced gene set for focused analysis</li>
-      <li>Can reduce noise from excluded genes with high variation</li>
-    </ul>
-  <li>Amalgamations</li>
-    <ul>
-      <li>Can collapse groups of genes with the same functionality into a single proportion</li>
-      <li>Facilitates the use of exploratory techniques for finding differences in pathways/functional groups</li>
-      <li>Amalgamations retain compositional structure</li>
-    </ul>  
+<ul style="font-size:12px">
+  <li>Compositions have several useful properties:</li>
+  <ul style="font-size:12px">
+    <li>Sub-Compositions</li>
+      <ul>
+        <li>Isolate sub-groups of probes from the sequenced gene set for focused analysis</li>
+        <li>Reduce noise from excluded genes with high variation</li>
+      </ul>
+    <li>Amalgamations</li>
+      <ul>
+        <li>Collapse groups of genes with the same functionality into a single proportion</li>
+        <li>Facilitates the use of exploratory techniques for finding differences in pathways/functional groups</li>
+      </ul>  
+  </ul>
 </ul>
 <img src="ASA_Poster_Content/images/hierarchicalCluster.png" style="height:120px">
-<p align="right"> <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
+<p align="right" style="font-size:12px"> <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
     </form>
   </div>
   
@@ -322,8 +322,8 @@
 <div class="col-sm-6">
   <img src="./ASA_Poster_Content/images/Celgene_IO_PCA_CLR_NPDP_AdhesionProbes_.png" style="width:100%">
 </div>
-<p style="font-size:10px">
-  Figure 6. Exploratory analysis of diseased and non-diseased pancreas samples. Left: PCA of the 10 amalgamated functional groups showing separation along the adhesion group. Right: PCA of the probes which constitute the adhesion group showing strong association with MUC1 and FN1.                     <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='block';document.getElementById('fade').style.display='block'">Expand</a>
+<p style="font-size:12px">
+  Figure 6. Exploratory analysis of diseased and non-diseased pancreas samples. Left: PCA of the 10 amalgamated functional groups. Right: PCA of the probes which constitute the adhesion group.                     <a href = "javascript:void(0)" onclick = "document.getElementById('content7').style.display='block';document.getElementById('fade').style.display='block'">Expand</a>
 </p>
 
 <!--/html_preserve--></div></div>
