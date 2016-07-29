@@ -147,11 +147,10 @@
       <li >Reasons NGS data are compositions (Lovell et al. 2011).</li>
           <ul>
             <li>Finite sample volume from which DNA/RNA is extracted</li>
-            <li>Finite number of reads available on each platform (as the number of reads increases for 1 transcript the number of available reads for the other transcripts decreases, Fig. 1)</li>
-            <li>Read depth (number of reads allocated to a sample) varies from run-to-run and sample-to-sample</li>
+            <li>Finite number of reads available (as the number of reads increases for 1 transcript the number of available reads for the other transcripts decreases, Fig. 1)</li>
           </ul>
 
-      <li style="margin-top:20px">Traditional methods can produce misleading results for compositional data</li>
+      <li style="margin-top:20px">Traditional statistical methods can produce misleading results for compositional data</li>
         <ul>
           <li>Spurious correlation (Pearson 1896)</li>
           <li>Univariate results may be misleading (Lovell et al. 2015)</li>
@@ -176,7 +175,6 @@
   <ul>
     <li>\(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</li>
     <li>The sum constraint, \(\mathbb{T}\), can change between platforms, sequencing runs, and samples.</li>
-    <li>This leads to an arbitrary difference in <i>scale</i> between samples.</li>
   </ul>
   <li style="margin-top:15px">Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).  As a result of the constraints on compositional data, the covariance matrix of an un-transformed composition is difficult to interpret.</li>
 </ul>
@@ -207,12 +205,14 @@
         <li>\(g(X)\) is the geometric mean of X</li>
         <li>Interpretable variance-covariance matrix</li>
         <li>Preserves the dimension of the original composition</li>
+        <li>Resulting transformed data is apprx normal</li>
       </ul>
   </ul>
   <li style="margin-top:15px">Euclidean distance can be misleading when measuring distances between compositions (Aitchison 1985)</li>
     <ul>
       <li><b>Aitchison distance</b> provides compositional equivalent to Euclidean distance</li>
       \[ d_A(x, y) = ||clr(x) - clr(y)||_2 \]
+      <li>Allows the use of methods such as clustering and PCA</li>
     </ul>
 </ul>
 
@@ -268,7 +268,7 @@
 <div class="chunk" id="unnamed-chunk-6"><div class="rcode"><!--html_preserve--><h4>Composition-Based Quality Control</h4>
 <ul style="font-size:12px">
   <li>The number of reads/sample is constrained by total reads/sequencing run</li>
-  <li>We expect the proportion of reads each sample is allocated to be apprx. equal</li>
+  <li>We expect the proportion of reads for each sample to be apprx. equal</li>
   <li>CLR transformation allows the use of standard outlier detection methods (Cook's Distance/ GOF)
 </ul>
 <img src="./ASA_Poster_Content/images/CLR_QC.png" style="width:400px;height:195;">
@@ -287,7 +287,7 @@
   
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
-<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><!--html_preserve--><h4>Sub-compositions and Amalgamations</h4>
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><!--html_preserve--><h4>Sub-Compositions and Amalgamations</h4>
 <ul style="font-size:12px">
   <li>Compositions have several useful properties:</li>
   <ul style="font-size:12px">
@@ -299,19 +299,19 @@
     <li>Amalgamations</li>
       <ul>
         <li>Collapse groups of genes with the same functionality into a single proportion</li>
-        <li>Facilitates the use of exploratory techniques for finding differences in pathways/functional groups</li>
+        <li>Facilitates the use of exploratory methods</li>
       </ul>  
   </ul>
 </ul>
 <img src="ASA_Poster_Content/images/hierarchicalCluster.png" style="height:120px">
-<p align="right" style="font-size:12px"> <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
+<p style="font-size:12px">Figure 5. Example hierarchical amalgamation for a sequencing run. <a href = "javascript:void(0)" onclick = "document.getElementById('content6').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p><!--/html_preserve--></div></div>
     </form>
   </div>
   
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-8"><div class="rcode"><!--html_preserve--><h4>Example Exploratory Analysis: Amalgamations</h4>
-<ul>
+<ul style="font-size:12px">
   <li>Analysis of 64 pancreas FFPE samples</li>
   <ul>
     <li>2 diseased (cancer) and 2 normal pancreas samples, each replicated 16 times</li>
