@@ -1,5 +1,5 @@
 <h4>Some Useful Compositional Operations</h4>
-<ul style="font-size:12px">
+<ul style="font-size:13px">
   <li>Correlation/covariance issues induced by compositions can be alleviated by working with <i><b>log-ratios</b></i> of components (Aitchison 1985).</li> 
   <ul>
     <li>Centered Log-Ratio (CLR): \( CLR (x_i) = log( \frac{x_i}{g(X)}) \)</li>
@@ -10,11 +10,11 @@
         <li>Resulting transformed data is apprx normal</li>
       </ul>
   </ul>
-  <li style="margin-top:15px">Euclidean distance can be misleading when measuring distances between compositions (Aitchison 1985)</li>
+  <li style="margin-top:15px"><b>Aitchison distance</b> provides compositional equivalent to Euclidean distance for use in methods such as cluster analysis and PCA</li>
     <ul>
-      <li><b>Aitchison distance</b> provides compositional equivalent to Euclidean distance</li>
       \[ d_A(x, y) = ||clr(x) - clr(y)||_2 \]
-      <li>Allows the use of methods such as clustering and PCA</li>
+<!-- has better qualities than euc dist -->      
+      <li>Euclidean distance can be misleading when measuring distances between compositions (Aitchison 1985)</li>
     </ul>
 </ul>
 

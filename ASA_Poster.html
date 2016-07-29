@@ -142,14 +142,14 @@
 
 <h4>Next-Generation Sequencing Data is Compositional</h4>
     
-    <ul style="font-size:12px">
+    <ul style="font-size:13px">
       <li style="margin-bottom:20px">Next-generation sequencing measurements provide only <i>relative</i> abundances of transcripts</li>
       <li >Reasons NGS data are compositions (Lovell et al. 2011).</li>
           <ul>
             <li>Finite sample volume from which DNA/RNA is extracted</li>
             <li>Finite number of reads available (as the number of reads increases for 1 transcript the number of available reads for the other transcripts decreases, Fig. 1)</li>
           </ul>
-
+<!--make this positive and opposed to punitive -->
       <li style="margin-top:20px">Traditional statistical methods can produce misleading results for compositional data</li>
         <ul>
           <li>Spurious correlation (Pearson 1896)</li>
@@ -170,9 +170,10 @@
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-3"><div class="rcode"><!--html_preserve--><h4>Properties of Compositional Data</h4>
   
-<ul style="font-size:12px">
-  <li>Relative abundance data arise from a sum constraint: \(\sum_{i=1}^{D} t_i = \mathbb{T}\)</li>
+<ul style="font-size:13px">
+  <li>Relative abundance data arise from a sum constraint: </li>
   <ul>
+    <li style="margin-bottom:10px;margin-top:10px">\(\sum_{i=1}^{D} t_i = \mathbb{T}\)</li>
     <li>\(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</li>
     <li>The sum constraint, \(\mathbb{T}\), can change between platforms, sequencing runs, and samples.</li>
   </ul>
@@ -197,7 +198,7 @@
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-4"><div class="rcode"><!--html_preserve--><h4>Some Useful Compositional Operations</h4>
-<ul style="font-size:12px">
+<ul style="font-size:13px">
   <li>Correlation/covariance issues induced by compositions can be alleviated by working with <i><b>log-ratios</b></i> of components (Aitchison 1985).</li> 
   <ul>
     <li>Centered Log-Ratio (CLR): \( CLR (x_i) = log( \frac{x_i}{g(X)}) \)</li>
@@ -208,11 +209,11 @@
         <li>Resulting transformed data is apprx normal</li>
       </ul>
   </ul>
-  <li style="margin-top:15px">Euclidean distance can be misleading when measuring distances between compositions (Aitchison 1985)</li>
+  <li style="margin-top:15px"><b>Aitchison distance</b> provides compositional equivalent to Euclidean distance for use in methods such as cluster analysis and PCA</li>
     <ul>
-      <li><b>Aitchison distance</b> provides compositional equivalent to Euclidean distance</li>
       \[ d_A(x, y) = ||clr(x) - clr(y)||_2 \]
-      <li>Allows the use of methods such as clustering and PCA</li>
+<!-- has better qualities than euc dist -->      
+      <li>Euclidean distance can be misleading when measuring distances between compositions (Aitchison 1985)</li>
     </ul>
 </ul>
 
@@ -235,13 +236,13 @@
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-5"><div class="rcode"><!--html_preserve--><h4>Counts per Million: A Compositional Operation</h4>
-<ul style="font-size:12px">
+<ul style="font-size:13px">
   <li>Counts per million (CPM) transformation is a widely used standardization method
     \[log_2 (CPM(x_i)) = log_2(\frac{x_i+0.5}{(\sum_{j=1}^K x_j)+1} \times 10^6) \]
     where, \(x_i\) is the read count for gene <i>i</i> in a sample with <i>K</i> genes measured.
   </li> 
 </ul>
-<ul style="font-size:12px">
+<ul style="font-size:13px">
   <li>What does CPM accomplish?</li>
     <ul>
       <li>CPM simply re-scales the data, a compositional <i><b>closure</b></i> operation.</li>
@@ -249,12 +250,8 @@
     </ul>
   <li style="margin-top:15px">What does CPM <i>not</i> accomplish?</li>
     <ul>
-      <li>Data still resides in the compositional simplex</li>
+      <li>CPM tranformed data is not suitable for multivariate methods (data still resides in /(S^{D-1}/) )</li>
       <li>Traditional methods may still produce spurious results</li>
-        <ul>
-          <li>Spurious correlation</li>
-          <li>Negatively biased covariance matrix, etc.</li>
-        </ul>
     </ul>
 </ul><!--/html_preserve--></div></div>
     
@@ -266,7 +263,7 @@
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-6"><div class="rcode"><!--html_preserve--><h4>Composition-Based Quality Control</h4>
-<ul style="font-size:12px">
+<ul style="font-size:13px">
   <li>The number of reads/sample is constrained by total reads/sequencing run</li>
   <li>We expect the proportion of reads for each sample to be apprx. equal</li>
   <li>CLR transformation allows the use of standard outlier detection methods (Cook's Distance/ GOF)
@@ -287,10 +284,9 @@
   
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
-<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><!--html_preserve--><h4>Sub-Compositions and Amalgamations</h4>
-<ul style="font-size:12px">
+<div class="chunk" id="unnamed-chunk-7"><div class="rcode"><!--html_preserve--><h4>Amalgamations and Sub-Compositions  </h4>
+<ul style="font-size:13px">
   <li>Compositions have several useful properties:</li>
-  <ul style="font-size:12px">
     <li>Sub-Compositions</li>
       <ul>
         <li>Isolate sub-groups of probes from the sequenced gene set for focused analysis</li>
@@ -311,16 +307,18 @@
   <div class="col-sm-3">
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-8"><div class="rcode"><!--html_preserve--><h4>Example Exploratory Analysis: Amalgamations</h4>
-<ul style="font-size:12px">
+<ul style="font-size:13px">
   <li>Analysis of 64 pancreas FFPE samples</li>
   <ul>
     <li>2 diseased (cancer) and 2 normal pancreas samples, each replicated 16 times</li>
   </ul>
   <li>HTG EdgeSeq Immuno-Oncology Assay</li>
+  <!--
   <ul>
     <li>549 genes</li>
     <li>10 functional groups</li>
   </ul>
+  -->
 </ul>
 <div class="col-sm-6">
   <img src="./ASA_Poster_Content/images/Celgene_IO_NPandDP_PCA_Amalg_CLR_NPDP_Identified.png" style="width:100%">
@@ -340,7 +338,7 @@
     <form class="well" style="height:410px;">
 <div class="chunk" id="unnamed-chunk-9"><div class="rcode"><!--html_preserve--><h4>Discussion and Future Directions</h4>
 <h5>Discussion</h5>
-<ul style="font-size:12px">
+<ul style="font-size:13px">
   <li>Accounting for the compositional nature of next-generation sequencing data:</li>
     <ul>
       <li>Guards against spurious results</li>
@@ -348,15 +346,25 @@
       <li>Allows for dimension reduction and exploratory analyses</li>
     </ul>
 </ul>
-<hr>
 <h5>Future Directions</h5>
-<ul style="font-size:12px">
+<ul style="font-size:13px">
+  <!--
   <li>Leverage compositional data methods for developing classifiers</li>
-  <li>Investigate the use of housekeeping or control probes to improve analyses</li>
+  -->
+  <li>Leverage the underlying compositional structure of RNA-Seq data to:</li>
+    <ul>
+      <li>develop optimal classifier methodology</li>
+      <li>extend the use of sub-compositions/amalgamations for analysis of co-expression/pathway analysis</li>
+      <li>Investigate the use of sub-compositions for quality control</li>
+    </ul>
+  
+  <!--
   <li>Assess the impact of log-ratio transformation choice</li>
+  -->
 </ul>
-<hr>
-<a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Literature Cited</a><!--/html_preserve--></div></div>
+<p align="right">
+  <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Literature Cited</a>
+</p><!--/html_preserve--></div></div>
 <!--    <p> <a href = "javascript:void(0)" onclick = "document.getElementById('content8').style.display='block';document.getElementById('fade').style.display='block'">Expand</a></p>
 -->
     </form>
@@ -527,20 +535,7 @@
 
 <div class="col-sm-4">
   <form class="well" style="height:700px;">
-    <h4 align="center">Sub-Compositions</h4>
-      <ul>
-        <li>Ability to isolate sub-groups of probes from the sequenced gene set for focused analysis</li>
-        <li>Can reduce noise from excluded genes with high variation</li>
-      </ul>
-    <p>The sub-compositional consistency of compositional methods can allow the evaluation of control or housekeeping probes for the evaluation of sample quality</p>
-    <img src="./ASA_Poster_Content/images/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png" style="width:100%;display:block;margin:auto">
-      
-  </form>  
-</div>
-
-<div class="col-sm-4">
-  <form class="well" style="height:700px;">
-    <h4 align="center">Amalgamations</h4>
+        <h4 align="center">Amalgamations</h4>
     <ul>
       <li>Can collapse groups of genes with the same functionality into a single proportion</li>
       <li>Facilitates the use of exploratory techniques for finding differences in pathways/functional groups by reducing the dimension of the data</li>
@@ -555,8 +550,15 @@
     <hr width="70%">
     
     <p>HTG Molecular Immuno-Oncology (IO) consists of 549 probes which can be amalgamated into 10 functional groups (right).  This dimensional reduction allows the use of visual exploratory methods such as PCA or clustering (see example analysis).</p>
+    
+<!--
+    <img src="./ASA_Poster_Content/images/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png" style="width:100%;display:block;margin:auto">
+-->
+      
   </form>  
 </div>
+
+
 
 <div class="col-sm-4">
   <form class="well" style="height:700px;">
@@ -568,7 +570,17 @@
   </p>
 </div>
   
-    <!--/html_preserve--></div></div>
+<div class="col-sm-4">
+  <form class="well" style="height:700px;">
+<h4 align="center">Sub-Compositions</h4>
+      <ul>
+        <li>Ability to isolate sub-groups of probes from the sequenced gene set for focused analysis</li>
+        <li>Can reduce noise from excluded genes with high variation</li>
+      </ul>
+    <p>The sub-compositional consistency of compositional methods can allow the evaluation of control or housekeeping probes for the evaluation of sample quality</p>
+<!-- frame this as a QC problem -->
+  </form>  
+</div>   <!--/html_preserve--></div></div>
     
 </div>
 
@@ -631,7 +643,7 @@
 </div>
 
 <div id="content8" class="white_content">
-<div class="chunk" id="unnamed-chunk-15"><div class="rcode"><!--html_preserve-->
+<div class="chunk" id="unnamed-chunk-15"><div class="rcode"><!--html_preserve--><!-- Add shri Pad  and dean paper-->
 
 <form class="well" style="height:700px;">
   <h4>Literature Cited</h4>
