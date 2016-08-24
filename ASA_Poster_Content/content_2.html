@@ -3,22 +3,18 @@
 <ul style="font-size:13px">
   <li>Relative abundance data arise from a sum constraint: </li>
   <ul>
-    <li style="margin-bottom:10px;margin-top:10px">\(\sum_{i=1}^{D} t_i = \mathbb{T}\)</li>
+    <li style="margin-top:10px">\(\sum_{i=1}^{D} t_i = \mathbb{T}\)</li>
     <li>\(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</li>
     <li>The sum constraint, \(\mathbb{T}\), can change between platforms, sequencing runs, and samples.</li>
+    <li>Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).</li>
   </ul>
-  <li style="margin-top:15px">Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).  As a result of the constraints on compositional data, the covariance matrix of an un-transformed composition is difficult to interpret.</li>
+ 
 </ul>
  
-<div class="row">
-  <div class="col-sm-6">    
-  <img src="./ASA_Poster_Content/images/BarAnimation.gif" alt="HTML5 Icon" style="width:200px;height:120px;"> 
-  </div>
-  <div class="col-sm-6">
-   <p style="font-size:12px">
-   <b>Figure 1:</b> The impact of changes to a single transcript on the relative abundance of the other transcripts being measured. Ignoring the constraints imposed by compositional data can lead to spurious results.
-   </p>
-  </div>
-</div>
+   
+<img src="./ASA_Poster_Content/images/BarAnimation.gif" alt="HTML5 Icon" style="display:block;margin:auto;width:220px;height:140px;"> 
+ <p style="font-size:12px">
+ <b>Figure 1:</b> Abosulte abundance (left) vs relative abundance (right).  Absolute abundance is unobservable in NGS-based measurements. 
+ </p>
 
 

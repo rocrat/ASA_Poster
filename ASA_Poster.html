@@ -150,11 +150,11 @@
             <li>Finite number of reads available (as the number of reads increases for 1 transcript the number of available reads for the other transcripts decreases, Fig. 1)</li>
           </ul>
 <!--make this positive and opposed to punitive -->
-      <li style="margin-top:20px">Traditional statistical methods can produce misleading results for compositional data</li>
+      <li style="margin-top:20px">Traditional statistical methods may produce misleading results for compositional data</li>
         <ul>
           <li>Spurious correlation (Pearson 1896)</li>
           <li>Univariate results may be misleading (Lovell et al. 2015)</li>
-          <li>Negative bias of the covariance matrix (Aitchison 1985)</li>
+          <li>Negative "bias" of the covariance matrix (Aitchison 1985)</li>
         </ul>
       
     </ul>
@@ -173,23 +173,19 @@
 <ul style="font-size:13px">
   <li>Relative abundance data arise from a sum constraint: </li>
   <ul>
-    <li style="margin-bottom:10px;margin-top:10px">\(\sum_{i=1}^{D} t_i = \mathbb{T}\)</li>
+    <li style="margin-top:10px">\(\sum_{i=1}^{D} t_i = \mathbb{T}\)</li>
     <li>\(t_i\) gives the number of reads to sample \(i\) in a sequencing run with \(D\) samples.</li>
     <li>The sum constraint, \(\mathbb{T}\), can change between platforms, sequencing runs, and samples.</li>
+    <li>Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).</li>
   </ul>
-  <li style="margin-top:15px">Compositions lie in the \(D-1\) dimensional simplex (\(S^{D-1}\)).  As a result of the constraints on compositional data, the covariance matrix of an un-transformed composition is difficult to interpret.</li>
+ 
 </ul>
  
-<div class="row">
-  <div class="col-sm-6">    
-  <img src="./ASA_Poster_Content/images/BarAnimation.gif" alt="HTML5 Icon" style="width:200px;height:120px;"> 
-  </div>
-  <div class="col-sm-6">
-   <p style="font-size:12px">
-   <b>Figure 1:</b> The impact of changes to a single transcript on the relative abundance of the other transcripts being measured. Ignoring the constraints imposed by compositional data can lead to spurious results.
-   </p>
-  </div>
-</div>
+   
+<img src="./ASA_Poster_Content/images/BarAnimation.gif" alt="HTML5 Icon" style="display:block;margin:auto;width:220px;height:140px;"> 
+ <p style="font-size:12px">
+ <b>Figure 1:</b> Abosulte abundance (left) vs relative abundance (right).  Absolute abundance is unobservable in NGS-based measurements. 
+ </p>
 
 <!--/html_preserve--></div></div>
     </form>
@@ -204,9 +200,9 @@
     <li>Centered Log-Ratio (CLR): \( CLR (x_i) = log( \frac{x_i}{g(X)}) \)</li>
       <ul>
         <li>\(g(X)\) is the geometric mean of X</li>
-        <li>Interpretable variance-covariance matrix</li>
+        <li>Informative variance-covariance matrix</li><!-- read up on this so you don't sound like a dope! -->
         <li>Preserves the dimension of the original composition</li>
-        <li>Resulting transformed data is apprx normal</li>
+        <li>Resulting transformed data can be modelled as multivariate-normal (Aitchison 1985)</li>
       </ul>
   </ul>
   <li style="margin-top:15px"><b>Aitchison distance</b> provides compositional equivalent to Euclidean distance for use in methods such as cluster analysis and PCA</li>
@@ -250,7 +246,7 @@
     </ul>
   <li style="margin-top:15px">What does CPM <i>not</i> accomplish?</li>
     <ul>
-      <li>CPM tranformed data is not suitable for multivariate methods (data still resides in /(S^{D-1}/) )</li>
+      <li>CPM tranformed data is not suitable for multivariate methods (data still resides in \(S^{D-1}\) )</li>
       <li>Traditional methods may still produce spurious results</li>
     </ul>
 </ul><!--/html_preserve--></div></div>
@@ -287,16 +283,17 @@
 <div class="chunk" id="unnamed-chunk-7"><div class="rcode"><!--html_preserve--><h4>Amalgamations and Sub-Compositions  </h4>
 <ul style="font-size:13px">
   <li>Compositions have several useful properties:</li>
+  <ul>
+    <li>Amalgamations</li>
+      <ul>
+        <li>Collapse groups of genes with the same functionality into a single proportion</li>
+        <li>Dimension reduction for exploratory methods</li>
+      </ul>  
     <li>Sub-Compositions</li>
       <ul>
         <li>Isolate sub-groups of probes from the sequenced gene set for focused analysis</li>
         <li>Reduce noise from excluded genes with high variation</li>
       </ul>
-    <li>Amalgamations</li>
-      <ul>
-        <li>Collapse groups of genes with the same functionality into a single proportion</li>
-        <li>Facilitates the use of exploratory methods</li>
-      </ul>  
   </ul>
 </ul>
 <img src="ASA_Poster_Content/images/hierarchicalCluster.png" style="height:120px">
@@ -406,6 +403,22 @@
 </div>
 <div class="col-sm-4">
   <form class="well" style="height:600px;">
+    <h4>Another Common Relative Frequency Measure: RT-qPCR</h4>
+    <ui>
+      <li>Analysis of qPCR is usually conducted through \(\delta \delta\) CT values</li>
+        <ul>
+          <li>\(\delta \delta\)CT is a <i>relative quantitation method</i></li>
+          <li>CT is a quantitation of transcipt amount</li>
+          <li>A Reference Gene is used to normalize possible variations in CT values from:</li>
+            <ul>
+              <li>Sample prep</li>
+              <li>RNA isolation</li>
+              <li>Reverse transcription efficiency, etc.</li>
+            </ul>
+        </ul>
+    </ui>
+    <img src="./ASA_Poster_Content/images/RTqPCR_example.png" style="width:100%;display:block;margin:auto">
+    <p style="font-size:13">From <a href="http://sabiosciences.com/manuals/IntrotoqPCR.pdf">http://sabiosciences.com/manuals/IntrotoqPCR.pdf></a></p>
   </form>
 </div>
 <!--/html_preserve--></div></div>
@@ -551,9 +564,7 @@
     
     <p>HTG Molecular Immuno-Oncology (IO) consists of 549 probes which can be amalgamated into 10 functional groups (right).  This dimensional reduction allows the use of visual exploratory methods such as PCA or clustering (see example analysis).</p>
     
-<!--
-    <img src="./ASA_Poster_Content/images/miRNA_Repro_Proportionality_of_PosCntrl_Probes_byType.png" style="width:100%;display:block;margin:auto">
--->
+    <img src="./ASA_Poster_Content/images/exampleData.png" style="width:100%;display:block;margin:auto">
       
   </form>  
 </div>
@@ -579,6 +590,7 @@
       </ul>
     <p>The sub-compositional consistency of compositional methods can allow the evaluation of control or housekeeping probes for the evaluation of sample quality</p>
 <!-- frame this as a QC problem -->
+    <img src="./ASA_Poster_Content/images/Proportionality_of_HK_Probes_wRaw.png" style="width:100%">
   </form>  
 </div>   <!--/html_preserve--></div></div>
     
@@ -615,7 +627,7 @@
     <p style="font-size:12px">
       Figure 6b: Covariance bi-plot of the 79 genes in the cell adhesion functional group showing both MUC1 and FN1 genes associated with separation of diseased and normal samples. 
     </p>
-    <img src="./ASA_Poster_Content/images/Celgene_IO_CLR_NPDP_AdhesionProbes_Diff(sidebyside).png" style="height:38%;display:block;margin:auto">
+    <img src="./ASA_Poster_Content/images/Celgene_IO_CLR_NPDP_AdhesionProbes_Diff(sidebyside)_mod.png" style="height:38%;display:block;margin:auto">
     <p style="font-size:12px">
       Figure 6c: Average of the CLR transformed reads for the cell adhesion functional group genes.  The two genes identified by the covariance bi-plot, MUC1 and FN1, exhibit the greatest difference in proportions between diseased and normal samples. 
     </p>
