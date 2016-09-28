@@ -1,7 +1,7 @@
 library(htmltools)
 library(ggplot2)
 library(compositions)
-library(cowplot)
+# library(cowplot)
 library(animation)
 library(reshape2)
 library(plyr)
@@ -37,7 +37,7 @@ draw.bars <- function(change, i){
     geom_bar(stat = "identity") + 
     geom_point(data = df2, aes(x = mRNA, y = limit), color = "white") +
     xlab("") + 
-    facet_wrap(~type, scales = "free_y") 
+    facet_wrap(~type, scales = "free_y") + plotTheme()
   png(paste0("./ASA_Poster_Content/images/Demonstrate_CoDA_Dependency", i, ".png"), width = 480, height = 480)
   # ggplot2::ggsave(paste0("./ASA_Poster_Content/images/Demonstrate_CoDA_Diff", i, ".png"),plot = pl, width = 480, height = 480)
   print(pl)
@@ -52,23 +52,31 @@ changes <- list(c(0,0,0,0),
                 c(0,10,0,0))
 
 draw.bars.alr <- function(change, i){
-  # browser()
   #apply change to compositional and non-compositional data
-  ndf <- df[-8, ]
+  ndf <- df#[-8, ]
   ndf[which(ndf$type == "Absolute Abundance"), ]$Expression <- ndf[which(ndf$type == "Absolute Abundance"), ]$Expression + change
-  ndf[which(ndf$type == "Relative Abundance"), ]$Expression <- alr(ndf[which(ndf$type == "Absolute Abundance"), ]$Expression + change)
-  ndf$type <- ifelse(ndf$type == "Absolute Abundance", "Absolute Abundance", "ALR Transformed")
+  ndf[which(ndf$type == "Relative Abundance"), ]$Expression <- clo(df[which(ndf$type == "Absolute Abundance"), ]$Expression + change)
+  CLR <- data.frame(mRNA = c("mRNA_1" , "mRNA_2" , "mRNA_3", "mRNA_4"),
+                    Expression = as.numeric(clr(df[which(ndf$type == "Absolute Abundance"), ]$Expression + change)),
+                    type = "CLR Transformed")
+  ALR <- data.frame(mRNA = c("mRNA_1" , "mRNA_2" , "mRNA_3", "mRNA_4"),
+                    Expression = c(as.numeric(alr(df[which(ndf$type == "Absolute Abundance"), ]$Expression + change)), 0),
+                    type = "ALR Transformed") 
+  
+  # ndf$type <- ifelse(ndf$type == "Absolute Abundance", "Absolute Abundance", "ALR Transformed")
+  ndf <- rbind(ndf, ALR, CLR)
   #shell data to set the y-axis limits
-  df2 <- data.frame(mRNA = rep(c("mRNA_1" , "mRNA_2" , "mRNA_3", "mRNA_4"), 2),
-                    limit = c(rep(30, 4), rep(2.2, 4)), 
-                    type = rep(c("Absolute Abundance", "ALR Transformed"), each = 4))
+  df2 <- data.frame(mRNA = rep(c("mRNA_1" , "mRNA_2" , "mRNA_3", "mRNA_4"), 5),
+                    limit = c(rep(30, 4), rep(1,4), rep(2.2, 4), rep(1.5, 4), rep(-1.5, 4)), 
+                    type = c(rep(c("Absolute Abundance", "Relative Abundance", "ALR Transformed", "CLR Transformed"), each = 4), rep("CLR Transformed", 4)))
   #plot the expression
   pl <- ggplot(ndf, aes(x = mRNA, y = Expression)) + 
     geom_bar(stat = "identity") + 
     geom_point(data = df2, aes(x = mRNA, y = limit), color = "white") +
     xlab("") + 
-    facet_wrap(~type, scales = "free_y") 
-  png(paste0("./ASA_Poster_Content/images/Demonstrate_ALR", i, ".png"), width = 480, height = 480)
+    facet_wrap(~type, scales = "free_y", ncol = 4) +
+    plotTheme()
+  png(paste0("./ASA_Poster_Content/images/Demonstrate_LR", i, ".png"), width = 480, height = 480)
   print(pl)
   dev.off()  
 }
